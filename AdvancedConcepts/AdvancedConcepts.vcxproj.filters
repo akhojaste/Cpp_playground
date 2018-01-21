@@ -111,5 +111,8 @@
     <ClCompile Include="StaticBinding.cpp">
       <Filter>Source Files\C++11</Filter>
     </ClCompile>
+    <ClCompile Include="DiamondProblem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -19,7 +19,7 @@
 //#include <thread>
 //#include <vector>
 //#include <mutex>
-//#include <condition_variable>
+//#include <stdio.h>
 //
 //std::mutex mu; //Global mutex;
 //std::vector<int> Vals(10, 0); //Shared resource
@@ -33,9 +33,9 @@
 //	//Some processing here that takes some time
 //	//To simulate that I just slepp this thread for some time
 //
-//	std::cout << "Thread is doing some work." << std::endl;
+//	std::cout << "Thread " << std::this_thread::get_id << " is doing some work." << std::endl;
 //	std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-//	std::cout << "Thread is signalling." << std::endl;
+//	std::cout << "Thread " << std::this_thread::get_id<<  " is signalling." << std::endl;
 //	cond.notify_one();
 //
 //}
@@ -48,6 +48,9 @@
 //	//t1.join(); //this means the main thread will wait for t1 to finish
 //	t1.detach(); //this means that t1 will run freely on its own.
 //
+//	//Some tasks are done in the main thread and then here
+//	//we are going to wait for thread t1 to finish
+//
 //	std::unique_lock<std::mutex> ul(mu);
 //	cond.wait(ul, 
 //		[]()
@@ -56,7 +59,7 @@
 //		}
 //	    ); //Lambda is for spurious wake i.e. wake by the same thread
 //
-//	std::cout << "Signal is received." << std::endl;
+//	std::cout << "Signal is received in thread " << std::this_thread::get_id << std::endl;
 //
 //	
 //	std::cin.get();
