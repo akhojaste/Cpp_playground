@@ -117,7 +117,10 @@
 //	u.push(12);
 //	print_stack(u);
 //
-//	stack v = u; // == stackv(u) since this is initialization, the copy constructor gets called here
+//	// == stackv(u) since this is initialization, the copy constructor gets called here
+//	//Since the initial state of the object is created using another object, then
+//	//Copy constructor will get called.
+//	stack v = u; 
 //	stack w;
 //	w = v; //this equals w.operator=(v)
 //
